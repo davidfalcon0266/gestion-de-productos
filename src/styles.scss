@@ -1,1 +1,45 @@
-/* You can add global styles to this file, and also import other style files */
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto', sans-serif;
+}
+
+/* Asegura que la tabla ocupe todo el ancho disponible */
+.table-responsive {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Hace que las celdas no se expandan demasiado */
+table {
+  width: 100%;
+  table-layout: fixed;
+}
+
+th, td {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+/* Estilos específicos para pantallas pequeñas */
+@media screen and (max-width: 768px) {
+  .table-responsive {
+    margin: 0;
+  }
+
+  th, td {
+    font-size: 14px;
+    padding: 8px;
+  }
+
+  .btn {
+    font-size: 12px;
+    padding: 4px 8px;
+  }
+
+  /* Si deseas ocultar alguna columna opcionalmente */
+  /* .hide-mobile {
+    display: none;
+  } */
+}

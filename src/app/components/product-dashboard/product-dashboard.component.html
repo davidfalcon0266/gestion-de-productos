@@ -1,0 +1,131 @@
+<div class="dashboard-container">
+  <div class="dashboard-header">
+    <h1>Gestión de Productos</h1>
+    <button 
+      type="button" 
+      class="btn add-btn"
+      (click)="openAddProductModal(content)">
+        Agregar Producto
+      <i class="fa-solid fa-plus-circle"></i>
+    </button>
+  </div>
+
+  <div class="products-grid" *ngIf="products.length > 0">
+    <div class="table-responsive">
+        <table class="table table-striped table-bordered text-center align-middle">
+            <thead class="table-primary">
+                <tr>
+                        <th><i class="fas fa-tag"></i> Nombre</th>
+                        <th><i class="fas fa-dollar-sign"></i> Precio</th>
+                        <th><i class="fas fa-warehouse"></i> Stock</th>
+                        <th><i class="fas fa-cogs"></i> Acciones</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let product of products">
+                    <td class="nombre_product">{{ product.nombre }}</td>
+                    <td>{{ product.precio * 1000 | currency:'CLP':'symbol':'1.0-0' }}</td>
+                    <td>
+                    <span class="badge bg-success">{{ product.stock }}</span>
+                    </td>
+                    <td>
+                    <button class="btn btn-danger btn-sm"
+                        (click)="deleteProduct(product.id!)">
+                        <i class="fas fa-trash-alt"></i> Eliminar
+                    </button>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+  </div>
+</div>
+
+<!-- Modal para agregar producto -->
+<ng-template #content let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title">
+      <i class="fas fa-plus-circle me-2"></i>
+      Agregar Nuevo Producto
+    </h4>
+    <button type="button" class="btn-close" (click)="modal.dismiss()"></button>
+  </div>
+
+  <div class="modal-body">
+    <form #productForm="ngForm" (ngSubmit)="addProduct()">
+      <div class="mb-3">
+        <label for="nombre" class="form-label">
+          <i class="fas fa-tag me-1"></i> Nombre del Producto *
+        </label>
+        <input 
+          type="text" 
+          class="form-control" 
+          id="nombre"
+          [(ngModel)]="newProduct.nombre"
+          name="nombre"
+          placeholder="Ej: Laptop HP Pavilion"
+          required
+          #nombreInput="ngModel">
+        <div *ngIf="nombreInput.invalid && nombreInput.touched" class="invalid-feedback d-block">
+          El nombre es obligatorio
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="precio" class="form-label">
+          <i class="fas fa-dollar-sign me-1"></i> Precio *
+        </label>
+        <div class="input-group">
+          <span class="input-group-text">$</span>
+          <input 
+            type="number" 
+            class="form-control" 
+            id="precio"
+            [(ngModel)]="newProduct.precio"
+            name="precio"
+            placeholder="0.00"
+            min="0.01"
+            step="0.01"
+            required
+            #precioInput="ngModel">
+        </div>
+        <div *ngIf="precioInput.invalid && precioInput.touched" class="invalid-feedback d-block">
+          El precio debe ser mayor a 0
+        </div>
+      </div>
+
+      <div class="mb-3">
+        <label for="stock" class="form-label">
+          <i class="fas fa-warehouse me-1"></i> Cantidad en Stock
+        </label>
+        <input 
+          type="number" 
+          class="form-control" 
+          id="stock"
+          [(ngModel)]="newProduct.stock"
+          name="stock"
+          placeholder="0"
+          min="0"
+          #stockInput="ngModel">
+      </div>
+
+      <div *ngIf="!isValidProduct() && (nombreInput.touched || precioInput.touched)" class="text-danger small">
+        <i class="fas fa-exclamation-triangle me-1"></i>
+        Por favor, completa todos los campos obligatorios correctamente.
+      </div>
+    </form>
+  </div>
+
+  <div class="modal-footer">
+    <button type="button" class="btn btn-secondary" (click)="modal.dismiss()">
+      <i class="fas fa-times me-1"></i> Cancelar
+    </button>
+    <button 
+      type="button" 
+      class="btn btn-primary"
+      (click)="addProduct()"
+      [disabled]="!isValidProduct()">
+      <i class="fas fa-save me-1"></i> Guardar Producto
+    </button>
+  </div>
+</ng-template>

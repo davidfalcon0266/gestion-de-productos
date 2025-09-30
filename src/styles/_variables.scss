@@ -1,0 +1,30 @@
+$color-primary: #019df4;
+$color-secondary: #667eea;
+$color-secondary-dark: #764ba2;
+
+// ✅ Estados
+$color-success: #27ae60;
+$color-success-light: #2ecc71;
+
+$color-warning: #f39c12;
+$color-warning-dark: #e67e22;
+
+$color-danger: #e74c3c;
+$color-danger-dark: #c0392b;
+
+$color-gray-dark: #2c3e50;
+$color-gray-medium: #34495e;
+$color-gray-light: #7f8c8d;
+$color-border: #f1f3f4;
+$color-background: #fafbfc;
+
+// ✅ Extras
+$color-white: #ffffff;
+$color-black: #000000;
+
+// Sombras
+$shadow-primary: 0 8px 32px rgba($color-secondary, 0.2);
+$shadow-success: 0 2px 8px rgba($color-success, 0.3);
+$shadow-warning: 0 2px 8px rgba($color-warning, 0.3);
+$shadow-danger: 0 2px 8px rgba($color-danger, 0.3);
+$shadow-light: 0 8px 32px rgba(0, 0, 0, 0.1);
