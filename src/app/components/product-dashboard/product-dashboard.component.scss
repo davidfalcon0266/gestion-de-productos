@@ -121,42 +121,42 @@
 
             tbody {
                 tr {
-                transition: all 0.3s ease;
-                border: none;
-                .nombre_product {
-                    text-align: left;
-                }
-
-                &:hover {
-                    background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
-                    transform: scale(1.005);
-                    box-shadow: $shadow-primary;
-                }
-
-                td {
-                    padding: 1.25rem 1rem;
-                    vertical-align: middle;
-                    border-color: $color-border;
-                    @media (max-width: 768px) {
-                        white-space: nowrap;
-                        text-overflow: ellipsis;
-                        overflow: hidden;
-                        max-width: 82px;
-                        padding: 1.25rem 0.3rem;
-                    }
-                        
-
-                    &.product-name {
-                    font-weight: 600;
-                    color: #0B2739;;
+                    transition: all 0.3s ease;
+                    border: none;
+                    .nombre_product {
+                        text-align: left;
                     }
 
-                    &.product-price {
-                    font-weight: 700;
-                    color: $color-success;
-                    font-size: 1.1rem;
+                    &:hover {
+                        background: linear-gradient(135deg, #f8f9ff 0%, #e3f2fd 100%);
+                        transform: scale(1.005);
+                        box-shadow: $shadow-primary;
                     }
-                }
+
+                    td {
+                        padding: 1.25rem 1rem;
+                        vertical-align: middle;
+                        border-color: $color-border;
+                        @media (max-width: 768px) {
+                            white-space: nowrap;
+                            text-overflow: ellipsis;
+                            overflow: hidden;
+                            max-width: 82px;
+                            padding: 1.25rem 0.3rem;
+                        }
+                            
+
+                        &.product-name {
+                        font-weight: 600;
+                        color: #0B2739;;
+                        }
+
+                        &.product-price {
+                        font-weight: 700;
+                        color: $color-success;
+                        font-size: 1.1rem;
+                        }
+                    }
                 }
             }
 
@@ -165,23 +165,22 @@
                 min-width: 32px;
             }
  
-
             .delete-btn {
-            background: linear-gradient(135deg, #ff5252, #d50000);
-            color: white;
-            border: none;
-            padding: 8px 16px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-weight: 600;
-            font-size: 14px;
-            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
-            transition: background 0.3s, transform 0.2s ease-in-out;
+                background: linear-gradient(135deg, #ff5252, #d50000);
+                color: white;
+                border: none;
+                padding: 8px 16px;
+                border-radius: 8px;
+                cursor: pointer;
+                font-weight: 600;
+                font-size: 14px;
+                box-shadow: 0 3px 6px rgba(0, 0, 0, 0.2);
+                transition: background 0.3s, transform 0.2s ease-in-out;
             }
 
             .delete-btn:hover {
-            background: linear-gradient(135deg, #ff1744, #b71c1c);
-            transform: translateY(-2px);
+                background: linear-gradient(135deg, #ff1744, #b71c1c);
+                transform: translateY(-2px);
                 @media screen and (max-width: 768px) {
                     font-size: 12px;
                     padding: 4px 8px;

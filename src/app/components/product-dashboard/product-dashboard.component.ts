@@ -13,7 +13,6 @@ export class ProductDashboardComponent {
   newProduct: Product = { nombre: '', precio: 0, stock: 0 };
   private modalRef!: NgbModalRef;
 
-
   constructor(
     private productService: ProductService,
     private modalService: NgbModal
